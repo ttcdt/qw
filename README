@@ -1,0 +1,35 @@
+   ___ __    __
+  / __ \ \/\/ /
+ ( (__) \    /
+  \__  / \/\/
+     \_\
+
+A minimalistic text editor
+==========================
+
+qw is a programmer-oriented, minimalistic text editor that inherits
+some experience and algorithms from the Minimum Profit text editor [1],
+but leaving out some of the most sophisticated features (scripting, etc.)
+for the sake of simplicity and memory economy. The following goals
+are defined:
+
+ * Infinite undo/redo levels.
+ * Wordwrapping by default.
+ * Full utf-8 support (arbitrary encodings not supported).
+ * Multithreaded I/O (file loading and saving).
+ * Minor IDE capabilities, like calling make and parsing its
+   output (also multhreaded).
+ * Minor VCS support (like the one in Minimum Profit).
+ * Multiplatform (which platforms TBD, at least curses and win32).
+ * Syntax highlighting.
+ * Basic color definitions.
+ * Basic key remapping.
+
+This is a work in progress. Any change can happen.
+
+This software is released into the public domain.
+
+ [1] https://triptico.com/software/mp.html
+
+---
+ttcdt <dev@triptico.com>

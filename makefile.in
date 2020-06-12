@@ -1,0 +1,83 @@
+PROJ=qw
+
+LIB=$(PROJ).a
+
+GRUTATXT_DOCS=
+MP_DOCCER_DOCS=
+G_AND_MP_DOCS=
+
+DIST_TARGET=/tmp/$(PROJ)-$(VERSION)
+
+OBJS=qw_blk.o qw_jrnl.o qw_utf8.o qw_fb.o qw_char.o \
+    qw_edit.o qw_thr.o qw_sh.o qw_cf.o qw_def_cf.o \
+    qw_proc.o qw_core.o $(DRV_OBJS)
+
+##################################################################
+
+all: $(PROJ) stress
+
+version:
+	@echo $(VERSION)
+
+.c.o:
+	$(CC) $(CFLAGS) `cat config.cflags` -c $<
+
+qw_def_cf.c: qw.cf
+	./build-cf.sh < qw.cf > $@
+
+qw_cf_k.h: qw_key.h
+	./build-cf-k.sh > $@
+
+qw_cf_o.h: qw_op.h
+	./build-cf-o.sh > $@
+
+dep:
+	gcc -MM *.c > makefile.depend
+
+$(LIB): $(OBJS)
+	./build-info.sh
+	$(CC) -c .build-info.c
+	$(AR) rv $(LIB) $(OBJS) .build-info.o
+
+$(PROJ): qw.o $(LIB)
+	$(CC) $(CFLAGS) $(LDFLAGS) `cat config.cflags` qw.o $(LIB) `cat config.ldflags` -o $@
+
+stress-test: stress
+	./stress && sha1sum -c stress.out.sha1
+
+stress-test-v: stress
+	./stress -v && sha1sum -c stress.out.sha1
+
+stress: stress.o $(LIB)
+	$(CC) $(CFLAGS) $(LDFLAGS) `cat config.cflags` stress.o $(LIB) -o $@
+
+clean:
+	rm -f *.o *.a *.out *.tar.gz stress qw_def_cf.c qw_cf_k.h qw_cf_o.h *.asc ${PROJ}
+
+distclean: clean
+	rm -f config.h config.cflags config.ldflags makefile.opts .config.log Makefile
+
+.SUFFIXES: .txt .html
+
+.txt.html:
+	grutatxt < $< > $@
+
+docs: $(DOCS)
+
+docsclean:
+	rm -f doc/*.html
+
+distcopy: distclean docs
+	mkdir -p $(DIST_TARGET) ; \
+	tar cf - * | (cd $(DIST_TARGET) ; tar xf -)
+
+dist: distcopy
+	(cd /tmp ; tar czf - $(PROJ)-$(VERSION)/* ) > $(PROJ).tar.gz ; \
+	rm -rf $(DIST_TARGET)
+
+install:
+	install $(PROJ) $(PREFIX)/bin/$(PROJ)
+
+uninstall:
+	rm -f $(PREFIX)/bin/$(PROJ)
+

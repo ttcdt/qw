@@ -1,0 +1,128 @@
+tab_size 4
+
+key char char
+key up up
+key down down
+key left left
+key right right
+key pgup pgup
+key pgdn pgdn
+key home bor
+key end eor
+key enter newline
+key tab tab
+key shift_tab hard_tab
+key del del
+key backspace backspace
+key ctrl_c copy
+key ctrl_n next
+key ctrl_q quit
+key ctrl_v paste
+key ctrl_x cut
+key ctrl_y del_row
+key ctrl_w close
+key ctrl_z undo
+key ctrl_s save
+key f9 mark
+key f8 unmark
+key ctrl_k show_codes
+key f3 search
+key ctrl_f new_search
+key alt_left bol
+key alt_right eol
+key alt_home bof
+key alt_end eof
+key alt_minus m_dash
+
+color_normal default default
+color_cursor default default reverse
+color_mark ff0000 ffffff reverse
+color_matching ffffff 0000ff
+color_word1 008000 default
+color_word2 ff0000 default
+color_word3 800080 default
+color_comment 008000 default
+color_literal 0000ff default
+color_doc 88ffff default
+
+# dark color set
+#color_normal d0d0d0 202020
+#color_cursor d0d0d0 202020 reverse
+#color_word1 6ab825 202020
+#color_word2 447fcf 202020
+#color_word3 24909d 202020
+#color_literal ed9d13 202020
+#color_comment 999999 202020
+#color_doc 3677a9 202020
+
+# python
+sh_ext python .py
+sh_token_word1 python as and assert break class continue def del elif else
+sh_token_word1 python except exec finally for from if import in is lambda
+sh_token_word1 python not or pass print raise return try with while yield
+sh_token_word2 python global True False None self dict list
+sh_token_word2 python set bool int float str repr
+sh_token_literal python 0
+sh_block_doc python """ """
+sh_block_literal python " " \\"
+sh_block_literal python ' ' \\'
+sh_block_comment python # \n
+
+# c/c++
+sh_ext c .c .h .l .y .hh .cpp .hpp .c++ .cxx .xpm
+sh_block_comment c #if\ 0 #endif
+sh_word_word3 c #ifdef #ifndef #endif #include #define #if #else
+sh_token_word1 c auto break case catch class const const_cast
+sh_token_word1 c continue default delete do dynamic_cast" else enum
+sh_token_word1 c explicit extern for friend goto if inline mutable
+sh_token_word1 c namespace new operator private protected public
+sh_token_word1 c register reinterpret_cast restrict return sizeof
+sh_token_word1 c static static_cast struct switch template this
+sh_token_word1 c throw try typedef typeid typename union using
+sh_token_word1 c virtual volatile while not not_eq xor xor_eq or or_eq
+sh_token_word1 c and and_eq bitor bitand compl
+sh_token_word2 c bool char double float int long short signed
+sh_token_word2 c unsigned wchar_t size_t ssize_t off_t wchar_t
+sh_token_word2 c ptrdiff_t void sig_atomic_t fpos_t clock_t time_t
+sh_token_word2 c va_list jmp_buf FILE DIR div_t ldiv_t mbstate_t
+sh_token_word2 c wctrans_t wint_t wctype_t complex int8_t int16_t
+sh_token_word2 c int32_t int64_t uint8_t uint16_t uint32_t uint64_t
+sh_token_word2 c int_least8_t int_least16_t int_least32_t int_least64_t
+sh_token_word2 c uint_least8_t uint_least16_t uint_least32_t
+sh_token_word2 c uint_least64_t int_fast8_t int_fast16_t int_fast32_t
+sh_token_word2 c int_fast64_t uint_fast8_t uint_fast16_t uint_fast32_t
+sh_token_word2 c uint_fast64_t intptr_t uintptr_t intmax_t uintmax_t
+sh_token_literal c NULL 0
+sh_block_doc c /** */
+sh_block_comment c /* */
+sh_block_literal c " " \\"
+sh_block_literal c ' '
+sh_block_comment c // \n
+
+# perl
+sh_ext perl .pl .pm .PL
+sh_token_word1 perl for if next last else elsif unless while shift unshift
+sh_token_word1 perl push pop delete new bless return foreach keys values
+sh_token_word1 perl sort grep tr length system exec fork map print write
+sh_token_word1 perl open close chop chomp exit sleep split join sub
+sh_token_word1 perl printf sprintf s glob scalar my local undef defined
+sh_token_word1 perl use package require ref can isa qw qq eq ne or
+sh_token_word1 perl exists and not import our caller
+sh_token_literal perl 0
+sh_block_literal perl " " \\"
+sh_block_literal perl ' ' \\'
+sh_block_literal perl ` `
+sh_block_comment perl # \n
+
+# sh
+sh_ext sh .sh akefile
+sh_token_word1 sh if then else elif fi case do done esac
+sh_token_word1 sh for until while break in source alias cd
+sh_token_word1 sh continue echo eval exec exit export
+sh_token_word1 sh kill logout printf pwd read return
+sh_token_word1 sh shift test trap ulimit umask unset wait cp rm
+sh_token_word2 sh local let set
+sh_block_literal sh ` `
+sh_block_literal sh " " \\"
+sh_block_literal sh ' ' \\'
+sh_block_comment sh # \n

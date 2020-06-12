@@ -1,0 +1,29 @@
+qw.o: qw.c config.h qw.h qw_char.h qw_key.h qw_blk.h qw_jrnl.h qw_utf8.h \
+ qw_fb.h qw_edit.h qw_sh.h qw_op.h qw_event.h qw_cf.h qw_core.h qw_proc.h \
+ qw_thr.h qw_avail_drv.h
+qw_blk.o: qw_blk.c config.h qw_blk.h qw_char.h
+qw_cf.o: qw_cf.c config.h qw_cf.h qw_core.h qw_op.h qw_key.h qw_proc.h \
+ qw_char.h qw_thr.h qw_edit.h qw_blk.h qw_jrnl.h qw_sh.h qw_fb.h \
+ qw_event.h qw_cf_k.h qw_cf_o.h
+qw_char.o: qw_char.c config.h qw_char.h
+qw_core.o: qw_core.c qw_core.h qw_op.h qw_key.h qw_proc.h qw_char.h \
+ qw_thr.h config.h qw_edit.h qw_blk.h qw_jrnl.h qw_sh.h qw_fb.h \
+ qw_event.h
+qw_def_cf.o: qw_def_cf.c
+qw_drv_curses.o: qw_drv_curses.c config.h qw_char.h qw_core.h qw_op.h \
+ qw_key.h qw_proc.h qw_thr.h qw_edit.h qw_blk.h qw_jrnl.h qw_sh.h qw_fb.h \
+ qw_event.h
+qw_drv_win32.o: qw_drv_win32.c config.h
+qw_edit.o: qw_edit.c config.h qw_edit.h qw_blk.h qw_char.h qw_jrnl.h \
+ qw_sh.h qw_fb.h qw_op.h qw_event.h qw_utf8.h qw_cf.h qw_core.h qw_key.h \
+ qw_proc.h qw_thr.h
+qw_fb.o: qw_fb.c config.h qw_fb.h qw_char.h
+qw_jrnl.o: qw_jrnl.c config.h qw_jrnl.h qw_char.h qw_blk.h
+qw_proc.o: qw_proc.c config.h qw_utf8.h qw_char.h qw_proc.h qw_thr.h \
+ qw_op.h qw_edit.h qw_blk.h qw_jrnl.h qw_sh.h qw_fb.h qw_event.h
+qw_sh.o: qw_sh.c config.h qw_sh.h qw_char.h
+qw_thr.o: qw_thr.c config.h qw_thr.h
+qw_utf8.o: qw_utf8.c config.h qw_utf8.h qw_char.h
+stress.o: stress.c config.h qw.h qw_char.h qw_key.h qw_blk.h qw_jrnl.h \
+ qw_utf8.h qw_fb.h qw_edit.h qw_sh.h qw_op.h qw_event.h qw_cf.h qw_core.h \
+ qw_proc.h qw_thr.h

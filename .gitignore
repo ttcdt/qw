@@ -1,0 +1,17 @@
+.build-info.c
+.build-info.o
+.config.log
+Makefile
+config.cflags
+config.h
+qw_avail_drv.h
+config.ldflags
+makefile.opts
+stress
+stress.out
+*.a
+*.o
+qw_def_cf.c
+qw_cf_k.h
+qw_cf_o.h
+qw
